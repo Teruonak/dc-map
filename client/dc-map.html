@@ -1,0 +1,31 @@
+<head>
+	<meta charset="utf-8">
+	<title>DC no mundo - Um mapa interativo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:400,700'>
+	
+	<!-- Favicon and touch icons -->
+	<link rel="shortcut icon" href="ico/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body>
+	{{> page}}
+</body>
+
+<template name="page">
+	{{> header}}
+	{{renderPage}}
+	{{> footer}}
+</template>
+
+<template name="hello">
+	<h1>Hello World!</h1>
+		{{greeting}}
+	<input type="button" value="Click" />
+</template>
