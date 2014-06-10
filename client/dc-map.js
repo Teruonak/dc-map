@@ -5,11 +5,6 @@ Router.map(function () {
   this.route('add');
 })
 
-Meteor.Router.add({
-  '/':'comingsoon',
-  '/add':'add'
-});
-
 /*
   Background slideshow
 */
