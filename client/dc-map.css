@@ -120,7 +120,7 @@ a:hover { text-decoration: none; }
 .timer .hours-wrapper:hover,
 .timer .minutes-wrapper:hover,
 .timer .seconds-wrapper:hover {
-    background: #59aee7 url(../img/pattern-2.png);
+    background: #59aee7 url(/img/pattern-2.png);
     text-shadow: none;
 }
 
@@ -244,12 +244,12 @@ a:hover { text-decoration: none; }
     margin: 3px;
 }
 
-.social a.facebook { background: url(../img/social-icons/facebook.png); }
-.social a.twitter { background: url(../img/social-icons/twitter.png); }
-.social a.dribbble { background: url(../img/social-icons/dribbble.png); }
-.social a.googleplus { background: url(../img/social-icons/googleplus.png); }
-.social a.pinterest { background: url(../img/social-icons/pinterest.png); }
-.social a.flickr { background: url(../img/social-icons/flickr.png); }
+.social a.facebook { background: url(/img/social-icons/facebook.png); }
+.social a.twitter { background: url(/img/social-icons/twitter.png); }
+.social a.dribbble { background: url(/img/social-icons/dribbble.png); }
+.social a.googleplus { background: url(/img/social-icons/googleplus.png); }
+.social a.pinterest { background: url(/img/social-icons/pinterest.png); }
+.social a.flickr { background: url(/img/social-icons/flickr.png); }
 */
 
 /***** Media Queries *****/

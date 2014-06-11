@@ -1,40 +1,37 @@
-Students = new Meteor.Collection('students');
+Register = new Meteor.Collection('register');
+Company = new Meteor.Collection('company');
+Country = new Meteor.Collection('country');
 
 Router.map(function () {
-  this.route('comingsoon', {path: '/'})
+  this.route('page', {path: '/'})
   this.route('add');
 })
 
 /*
-  Background slideshow
-*/
-$('.coming-soon').backstretch([
-  "img/backgrounds/1.jpg"
-  , "img/backgrounds/2.jpg"
-  , "img/backgrounds/3.jpg"
-], {duration: 3000, fade: 750});
-
-/*
-Countdown initializer
-*/
-$('.timer').countdown({
-  date: "13 June 2014 12:00:00",
-  format: "on"
-},
-
-function() {
-  // callback function
-});
-
-
-Template.hello.greeting = function () {
-  return "Welcome to dc-map.";
-};
-
-Template.hello.events({
-  'click input': function () {
-    // template data, if any, is available in 'this'
-    if (typeof console !== 'undefined')
-      console.log("You pressed the button");
+Template events
+ */
+Template.add.events({
+  'click .btn-add':function(evt, tmpl) {
+    // evt.preventDefault();
+    var name = tmpl.find('.form-control.name').value;
+    var email = tmpl.find('.form-control.email').value;
+    var country = tmpl.find('.form-control.country').value;
+    Person.insert({name:name,email:email,country:country});
+    console.log("test");
   }
 });
+
+Template.add.register = function() {
+  return Register.find();
+};
+Template.add.company = function() {
+  return Company.find();
+};
+Template.add.country = function() {
+  return Country.find();
+};
+Template.add.totalRegister = function() {
+  return Register.leght();
+};
+
+

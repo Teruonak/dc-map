@@ -1,35 +1,34 @@
 <template name="add">
 	<form class="form-horizontal" role="form">
 		<div class="form-group">
-			<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+			<label for="inputEmpresa" class="col-sm-2 control-label">Empresa</label>
 			<div class="col-sm-4">
-				<input type="email" class="form-control" id="inputEmail" placeholder="Email">
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="inputCountry" class="col-sm-2 control-label">Password</label>
-			<div class="col-sm-4">
-				<select class="form-control">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
+				<select name="inputEmpresa" id="inputEmpresa" class="form-control chosen-single chosen-default empresa">
+					{{#each empresa}}
+					<option value="{{value}}">{{name}}</option>
+					{{/each}}
 				</select>
 			</div>
 		</div>
 		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-4">
-				<div class="checkbox">
-				<label>
-					<input type="checkbox"> Remember me
-				</label>
-				</div>
+			<label for="inputCountry" class="col-sm-2 control-label">País</label>
+			<div class="col-sm-4">
+				<select name="inputCountry" id="inputCountry" class="form-control chosen-single chosen-default country">
+					{{#each country}}
+					<option value="{{value}}">{{name}}</option>
+					{{/each}}
+				</select>
 			</div>
 		</div>
 		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-4"><p id="total">{{register.total}}</p></div>
+		</div>
+		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-4">
-				<button type="submit" class="btn btn-default">Sign in</button>
+				<button type="submit" class="btn btn-default btn-add">Adicionar</button>
+			</div>
+			<div class="col-sm-4">
+				<button type="submit" class="btn btn-default btn-remove">Remover</button>
 			</div>
 		</div>
 	</form>

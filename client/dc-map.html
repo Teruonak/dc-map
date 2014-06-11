@@ -15,16 +15,11 @@
 </head>
 
 <body>
-	{{> page}}
+	{{renderPage}}
 </body>
 
 <template name="page">
 	{{> header}}
-	{{renderPage}}
-</template>
-
-<template name="hello">
-	<h1>Hello World!</h1>
-		{{greeting}}
-	<input type="button" value="Click" />
+	{{> comingsoon}}
+	{{> footer}}
 </template>
