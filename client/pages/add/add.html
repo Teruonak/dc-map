@@ -1,11 +1,11 @@
 <template name="add">
 	<form class="form-horizontal form-add" role="form">
 		<div class="form-group">
-			<label for="inputEmpresa" class="col-sm-2 control-label">Empresa</label>
+			<label for="inputCompany" class="col-sm-2 control-label">Empresa</label>
 			<div class="col-sm-4">
-				<select name="inputEmpresa" id="inputEmpresa" data-placeholder="Escolha uma empresa ou escreva uma nova." class="form-control choosen-form chosen-single chosen-default empresa">
+				<select name="inputCompany" id="inputCompany" data-placeholder="Escolha uma empresa ou escreva uma nova." class="form-control chosen-form chosen-single chosen-default">
 					{{#each companyField}}
-						<option value="{{company}}">{{company}}</option>
+						{{> eachCompany}}
 					{{/each}}
 				</select>
 			</div>
@@ -13,9 +13,9 @@
 		<div class="form-group">
 			<label for="inputCountry" class="col-sm-2 control-label">País</label>
 			<div class="col-sm-4">
-				<select name="inputCountry" id="inputCountry" data-placeholder="Escolha uma empresa ou escreva uma nova." class="form-control choosen-form chosen-single chosen-default country">
+				<select name="inputCountry" id="inputCountry" data-placeholder="Escolha um país." class="form-control chosen-form chosen-single chosen-default">
 					{{#each countryField}}
-						<option value="{{country}}">{{country}}</option>
+						{{> eachCountry}}
 					{{/each}}
 				</select>
 			</div>
@@ -23,7 +23,7 @@
 		<div class="form-group">
 			<label for="inputQuantity" class="col-sm-2 control-label">Quantidade</label>
 			<div class="col-sm-4">
-				<input type="number" id="inputQuantity" class="form-control" placeholder="Número de pessoas">
+				<label id="inputQuantity" class="control-label">Total de pessoas: {{totalPeopleForSelection}}</label>
 			</div>
 		</div>
 		<div class="form-group">
@@ -35,4 +35,16 @@
 			</div>
 		</div>
 	</form>
+</template>
+
+<template name="selectControl">
+	
+</template>
+
+<template name="eachCompany">
+	<option value="{{company}}">{{company}}</option>
+</template>
+
+<template name="eachCountry">
+	<option value="{{country}}">{{country}}</option>
 </template>

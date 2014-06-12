@@ -1,6 +1,20 @@
-Template.add.rendered = function() {
-  $(".choosen-form").chosen({
-    no_results_text: "Oops, nothing found!",
+Template.eachCompany.rendered = function() {
+  $("#inputCompany").chosen({
+    no_results_text: "Epa. Nenhuma empresa encontrada...",
+    search_contains: true
+  });
+};
+
+Template.eachCountry.rendered = function() {
+  $("#inputCountry").chosen({
+    no_results_text: "Epa. Nenhum país encontrado...",
+    search_contains: true
+  });
+};
+
+Template.countryList.rendered = function() {
+  $("#inputCountry").chosen({
+    no_results_text: "Epa. Nenhum país encontrado...",
     search_contains: true
   });
 };
@@ -27,6 +41,16 @@ Template.add.companyField = function() {
 };
 Template.add.countryField = function() {
   return Company.find();
+};
+Template.add.totalPeopleForSelection = function() {
+  var numberTotal = 0;
+  var companyCursor = Company.find({
+
+  });
+  companyCursor.forEach(function(company) {
+    numberTotal = numberTotal + company.quantity
+  });
+  return numberTotal;
 };
 Template.add.totalRegister = function() {
 };
