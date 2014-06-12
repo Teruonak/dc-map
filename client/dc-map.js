@@ -2,10 +2,7 @@ Register = new Meteor.Collection('register');
 Company = new Meteor.Collection('company');
 Country = new Meteor.Collection('country');
 
-Router.map(function () {
-  this.route('page', {path: '/'})
-  this.route('add');
-})
+
 
 /*
 Template events
