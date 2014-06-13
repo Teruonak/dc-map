@@ -3,6 +3,7 @@ Router.configure({
 });
 
 Router.map(function () {
-  this.route('comingsoon', {path: '/'})
-  this.route('add');
+  this.route('comingsoon', {path: '/'}),
+  this.route('add'),
+  this.route('addcompany')
 });
