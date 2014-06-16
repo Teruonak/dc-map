@@ -20,11 +20,19 @@ Meteor.startup(function() {
 		hasDoc: function(company, country){
 			console.log("company: " + company);
 			console.log("country: " + country);
-			return Company.find({company: company, country: country}).count;
+			if (Company.find({company: company, country: country}).count() == 0) {
+				return false;
+			} else {
+				return true;
+			};
 		},
 		addCompanyNumber: function(company, country) {
-			Company.update({company:company,country:country},
-				{ $inc: {quantity: 1}});
+			if (Company.find({company: company, country: country}).count() == 0) {
+				Company.insert({company: company, country: country, quantity: 1});
+			} else{
+				Company.update({company:company,country:country},
+					{ $inc: {quantity: 1}});
+			};
 		},
 		removeCompanyNumber: function(company, country) {
 			Company.update({company:company,country:country},
