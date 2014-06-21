@@ -1,0 +1,21 @@
+.logo h1 {
+    margin-top: 8px;
+    padding-left: 50px;
+    font-family: 'Lobster', cursive;
+    font-size: 24px;
+    font-weight: 300;
+    color: #555;
+}
+
+.logo h1 span { color: #59aee7; }
+
+.logo a {
+    color: #555;
+    text-decoration: none;
+    -o-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -ms-transition: all .2s;
+}
+
+.logo a:hover { color: #59aee7; }

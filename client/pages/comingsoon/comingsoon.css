@@ -1,0 +1,70 @@
+.coming-soon {
+    /*height: 90%;*/
+    margin: 0 auto;
+    text-align: center;
+}
+
+.inner-bg {
+    padding: 55px 0 60px 0;
+    /*height: 400px;*/
+    background: url(/img/pattern-3.png);
+    -moz-box-shadow: 0 1px 5px 0 rgba(0,0,0,.3) inset;
+    -webkit-box-shadow: 0 1px 5px 0 rgba(0,0,0,.3) inset;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.3) inset;
+}
+
+.coming-soon h2 {
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0 1px 7px rgba(0,0,0,.2);
+	color: #000;
+}
+
+.coming-soon p {
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 36px;
+    text-shadow: 0 1px 7px rgba(0,0,0,.2);
+	font-weight: 500;
+	color: #000;
+}
+
+.timer {
+    margin-top: 100px;
+    text-shadow: 0 1px 5px rgba(0,0,0,.1);
+	color: #fff;
+}
+
+.timer .days-wrapper,
+.timer .hours-wrapper,
+.timer .minutes-wrapper,
+.timer .seconds-wrapper {
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    margin: 0 10px;
+    padding-top: 20px;
+    background: #a3a3a3; /* browsers that don't support rgba */
+    background: rgba(163,163,163,.7);
+    font-size: 18px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.timer .days-wrapper:hover,
+.timer .hours-wrapper:hover,
+.timer .minutes-wrapper:hover,
+.timer .seconds-wrapper:hover {
+    background: #59aee7 url(/img/pattern-2.png);
+    text-shadow: none;
+}
+
+.timer .days,
+.timer .hours,
+.timer .minutes,
+.timer .seconds {
+    font-size: 80px;
+    line-height: 90px;
+}

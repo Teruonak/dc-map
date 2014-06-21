@@ -1,0 +1,20 @@
+
+.subscribe {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.subscribe h3 {
+    font-size: 32px;
+    font-weight: 400;
+    color: #4d4d4d;
+    line-height: 40px;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 1px #fff;
+}
+
+.subscribe p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 36px;
+}
