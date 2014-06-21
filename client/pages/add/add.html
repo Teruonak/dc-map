@@ -3,12 +3,16 @@
 	<form class="form-horizontal form-add" role="form">
 		<div class="form-group">
 			<label for="inputCompany" class="col-sm-2 control-label">Empresa</label>
-			<div class="col-sm-4">
+			<div class="col-sm-4" id="inputCompany_all_chosen">
 				<select name="inputCompany" id="inputCompany" data-placeholder="Selecione a empresa ou escreva uma nova." class="form-control chosen-form chosen-single chosen-default">
 					{{#each companyField}}
 						{{> eachCompany}}
 					{{/each}}
 				</select>
+			</div>
+			<div class="col-sm-4" id="inputCompany_all_text" style="display: none;">
+				<input type="text">
+				<a id="cancelAdd"><label>cancelar</label></a>
 			</div>
 		</div>
 		<div class="form-group">
