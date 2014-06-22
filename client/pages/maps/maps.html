@@ -1,3 +1,10 @@
 <template name="maps">
-  <div id="world-map" style="width: 600px; height: 400px"></div>
+	<div class="content-maps col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div id="world-map" style="width: 600px; height: 400px"></div>
+		<script>
+			$(function(){
+				$('#world-map').vectorMap();
+			});
+		</script>
+	</div>
 </template>
