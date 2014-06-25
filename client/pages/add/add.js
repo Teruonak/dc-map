@@ -59,5 +59,5 @@ Template.add.helpers({
 });
 
 Template.add.companyField = function() {
-  return Company.find({}, {sort: {company: 1}});
+  return Company.find({}, {sort: {index: 1}});
 };
