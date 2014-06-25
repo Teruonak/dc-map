@@ -1,28 +1,3 @@
-Template.eachCompany.rendered = function() {
-  $("#inputCompany").chosen({
-    no_results_text: "Selecione 'Nova empresa' antes, para adicionar",
-    search_contains: true,
-    allow_single_deselect: true
-  }).change(function() {
-    if (this.value == "--Nova empresa--") {
-      this.value = "";
-      $("#inputCompany_all_chosen").hide();
-      $("#inputCompany_all_text").show();
-    };
-  });
-  $("#inputCompany").on('chosen:showing_dropdown', function(evt, params){
-    $("#inputCompany").trigger("chosen:updated");
-  });
-};
-
-Template.countryList.rendered = function() {
-  $("#inputCountry").chosen({
-    no_results_text: "Epa. Nenhum país encontrado...",
-    search_contains: true,
-    allow_single_deselect: true
-  });
-};
-
 /*
 Template events
  */
@@ -45,17 +20,24 @@ Template.add.events({
     if (company != "" && country != "") {
       console.log("=====adicionado======");
       Meteor.call('addCompanyNumber',company,country);
-      $("#inputCompany_all_chosen").show();
+      $("#inputCompany_all").show();
       $("#inputCompany_all_text").hide();
     };
   },
   'click #cancelAdd': function(evt, tmpl) {
-      $("#inputCompany_all_chosen").show();
-      $("#inputCompany_all_text").hide();
-      $("#inputCompany").trigger("chosen:updated");
-      // $("#inputCompany_chosen > a > span").text("");
-      // $("#inputCompany_chosen > a > abbr").remove();
-      // $("#inputCompany_chosen div.chosen-drop ul.chosen-results li.")
+    $("#inputCompany_all").show();
+    $("#inputCompany_all_text").hide();
+  },
+  'change #inputCompany': function(evt, tmpl) {
+    console.log($(evt.target).val());
+    if ($(evt.target).val() == "--Nova empresa--") {
+      $(evt.target).val("");
+      $("#inputCompany_all").hide();
+      $("#inputCompany_all_text").show();
+    };
+  },
+  'focusin #inputCompany, #inputCountry': function(evt, tmpl) {
+    Session.set("templateName",null);
   }
 });
 
