@@ -120,7 +120,7 @@ Meteor.startup(function() {
 			Company.insert({company: "Zarpsystem", index: "Zarpsystem".toLowerCase()});
 		},
 		addCompanyNumber: function(company, country) {
-			if (Company.find({company: company}).count() == 0) {
+			if (Company.find({index: company.toLowerCase()}).count() == 0) {
 				Company.insert({company: company, index: company.toLowerCase()});
 			};
 			if (Relation.find({index: company.toLowerCase(), country: country}).count() == 0) {

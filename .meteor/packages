@@ -9,3 +9,5 @@ insecure
 bootstrap-3
 jquery
 iron-router
+coffeescript
+wait-on-lib
