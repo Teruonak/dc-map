@@ -4,7 +4,8 @@
     "basePackages": {
       "bootstrap-3": {},
       "iron-router": {},
-      "wait-on-lib": {}
+      "wait-on-lib": {},
+      "leaflet": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -21,6 +22,11 @@
         "git": "https://github.com/DerMambo/wait-on-lib.git",
         "tag": "v0.0.3",
         "commit": "ee83a431019b59c341903c3f732ff3d8d038a8ce"
+      },
+      "leaflet": {
+        "git": "https://github.com/bevanhunt/meteor-leaflet.git",
+        "tag": "v0.3.8",
+        "commit": "84caaa2e8aac1c7f7b585a6b64163a1de406add4"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

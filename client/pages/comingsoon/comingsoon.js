@@ -13,7 +13,7 @@ Template.comingsoon.rendered = function() {
 	Countdown initializer
 	*/
 	$('.timer').countdown({
-		date: "27 June 2014 12:00:00",
+		date: "04 July 2014 12:00:00",
 		format: "on"
 	},
 	function() {

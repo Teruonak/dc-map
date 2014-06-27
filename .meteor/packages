@@ -11,3 +11,4 @@ jquery
 iron-router
 coffeescript
 wait-on-lib
+leaflet
