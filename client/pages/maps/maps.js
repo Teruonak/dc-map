@@ -3,7 +3,7 @@
 
 function style(feature) {
     return {
-        fillColor: getColor(feature.properties.students),
+        fillColor: getColor(getStudentFromCountry(feature.id)),
         weight: 1,
         opacity: 1,
         color: 'white',
@@ -22,6 +22,12 @@ function onEachFeature(feature, layer) {
 function zoomToFeature(e) {
     maps.fitBounds(e.target.getBounds());
     info.update();
+}
+
+function getStudentFromCountry(countryID) {
+	var mCountry = Country.find({id: countryID}).fetch();
+	if (mCountry.length == 0) { return 0};
+	return mCountry[0].students;
 }
 
 function getColor(d) {
