@@ -2,6 +2,7 @@ Meteor.startup(function() {
 	return Meteor.methods({
 		resetAllCompany: function() {
 			Company.remove({});
+			Company.insert({company: ""});
 			Company.insert({company: "--Nova empresa--"});
 		},
 		resetAllCollections: function() {
@@ -10,6 +11,8 @@ Meteor.startup(function() {
 			Company.insert({company: "--Nova empresa--"});
 
 			Relation.remove({});
+
+			Country.remove({});
 		},
 		initCompanyCollection: function() {
 			Company.insert({company: "3WT", index: "3WT".toLowerCase()});
@@ -367,6 +370,12 @@ Meteor.startup(function() {
 			Country.insert({students:0,name:"Samoa Americana",id:"WS"});
 			Country.insert({students:0,name:"Iémen",id:"YE"});
 			Country.insert({students:0,name:"Zâmbia",id:"ZM"});
+		},
+		updateCountryCollectionDummy: function() {
+			Country.update({id:"MX"}, {$inc: {students: 9}});
+			Country.update({id:"BR"}, {$inc: {students: 55}});
+			Country.update({id:"US"}, {$inc: {students: 15}});
+			Country.update({id:"AF"}, {$inc: {students: 105}});
 		}
 	});
 });
