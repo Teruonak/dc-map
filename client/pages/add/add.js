@@ -32,7 +32,7 @@ Template.add.events({
       $("#inputCompany_all_text").show();
     };
   },
-  'focusin #inputCompany, #inputCountry': function(evt, tmpl) {
+  'focusin #inputCompany, focusin #inputCountry': function(evt, tmpl) {
     Session.set("templateName",null);
   }
 });
