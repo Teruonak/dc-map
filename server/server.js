@@ -127,9 +127,11 @@ Meteor.startup(function() {
 			};
 			if (Relation.find({index: company.toLowerCase(), country: country}).count() == 0) {
 				Relation.insert({company: company, country: country, quantity: 1, index: company.toLowerCase()});
+				Country.update({id: country}, {$inc: {students: 1}});
 			} else{
 				Relation.update({index:company.toLowerCase(),country:country},
 					{ $inc: {quantity: 1}});
+				Country.update({id: country}, {$inc: {students: 1}});
 			};
 		},
 		initCountryCollection: function() {
