@@ -1,9 +1,20 @@
-///////////////////////////////////////////////////////////////////////////////
-// Map display
+Session.set('countryLoaded', false);
+Deps.autorun(function(){
+	// if (Session.get('countryLoaded') && !maps) {
+	// 	initialize($("#worldmap")[0], [ 0, 0 ], 2);
+	// };
+	Meteor.subscribe('country', function(){
+		Session.set('countryLoaded', true);
+		if (!maps) {
+			initialize($("#worldmap")[0], [ 0, 0 ], 2);
+		}
+	});
+});
 
 function style(feature) {
+	// console.log(((Country.find({id: feature.id},{fields: {students: 1, _id: 0}}).fetch())[0]).students);
     return {
-        fillColor: getColor(getStudentFromCountry(feature.id)),
+        fillColor: getColor(Country.findOne({id: feature.id},{fields: {students: 1,_id: 0}}).students),
         weight: 1,
         opacity: 1,
         color: 'white',
@@ -19,15 +30,13 @@ function onEachFeature(feature, layer) {
     });
 }
 
+function getStudents(feature) {
+	return Country.findOne({id: feature.id},{fields: {students: 1,_id: 0}}).students;
+}
+
 function zoomToFeature(e) {
     maps.fitBounds(e.target.getBounds());
     info.update();
-}
-
-function getStudentFromCountry(countryID) {
-	var mCountry = Country.find({id: countryID}).fetch();
-	if (mCountry.length == 0) { return 0};
-	return mCountry[0].students;
 }
 
 function getColor(d) {
@@ -46,7 +55,7 @@ function directToInsert(e) {
 var maps;
 var info;
 
-var initialize = function(element, centroid, zoom, features) {
+var initialize = function(element, centroid, zoom, features) { 
   maps = L.map(element, {
     scrollWheelZoom: false,
     doubleClickZoom: false,
@@ -81,9 +90,3 @@ geojson = L.geoJson(countries_data, {
 maps.attributionControl.setPrefix('');
 
 }
-
-Template.maps.rendered = function () {
-  if (!maps) {
-    initialize($("#world-map")[0], [ 0, 0 ], 2);
-  }
-};

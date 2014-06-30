@@ -1,3 +1,7 @@
+Meteor.subscribe('country');
+Meteor.subscribe('relation');
+Meteor.subscribe('company');
+
 Template.add.events({
   'click .btn-addUp': function(evt, tmpl) {
     evt.preventDefault();
