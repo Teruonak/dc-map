@@ -26,27 +26,14 @@ function style(feature) {
 		fillOpacity: 0.7
 	};
 };
-function zoomToFeature(e) {
-	maps.fitBounds(e.target.getBounds());
-	info.update();
-	Session.set('students',getStudents(e.target.feature.id));
-	Session.set('country',e.target.feature.id);
-	Session.set('companies',getCompanies(e.target.feature.id));
-	companiesObject = Session.get('companies');
-	$(".modal").modal();
-};
 function onEachFeature(feature, layer) {
 	layer.on({
-		dblclick: directToInsert,
 		click: zoomToFeature
 	});
 };
 function zoomToFeature(e) {
 	maps.fitBounds(e.target.getBounds());
-	info.update(e.target.feature.properties);
-	// info.update();
 	Session.set('getID',e.target.feature.id);
-	$(".modal").modal();
 };
 function getStudents(countryID) {
 	return Country.findOne({id: countryID},{fields: {students: 1}}).students;
@@ -62,11 +49,7 @@ function getColor(d) {
 	d > 1   ? '#616D7E' :
 	'#6D7B8D';
 };
-function directToInsert(e) {
-	info.update(e.target.feature.properties);
-};
 
-var info;
 var maps;
 
 var initialize = function(element, centroid, zoom, features) {
@@ -78,23 +61,6 @@ var initialize = function(element, centroid, zoom, features) {
 	}).setView(new L.LatLng(centroid[0], centroid[1]), zoom);
 
 	L.tileLayer('http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg', {opacity: .5}).addTo(maps);
-
-	info = L.control();
-
-	info.onAdd = function (maps) {
-		this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-		this.update();
-		return this._div;
-	};
-
-	// method that we will use to update the control based on feature properties passed
-	info.update = function (props) {
-		this._div.innerHTML = '<h4>Departamento de Computação</h4>' +  (props ?
-			'<b>' + 'Conhece alguém trabalhando em ' + props.name + '?</b><br />' + '<a href="http://dcnomundo.meteor.com/add">Adicione-o!</a>'
-			: 'Escolha um país.');
-	};
-
-	info.addTo(maps);
 
 	geojson = L.geoJson(countries_data, {
 		style: style,
@@ -110,9 +76,12 @@ Template.countryinfomodal.helpers({
 		return Session.get('isRelationReady');
 	},
 	companies: function(){
-			return Relation.find({country: {$exists: true, $in: [Session.get('getID')]}},{fields: {company: 1,quantity:1}});
+		return Relation.find({country: {$exists: true, $in: [Session.get('getID')]}},{fields: {company: 1,quantity:1}});
 	},
 	country: function() {
-			return Country.findOne({id:Session.get('getID'), students: {$exists: true}},{fields: {students: 1}}).students;
+		return Country.findOne({id:Session.get('getID'), students: {$exists: true}},{fields: {students: 1}}).students;
+	},
+	countryName: function() {
+		return Country.findOne({id:Session.get('getID')}).name;
 	}
 });

@@ -1,28 +1,22 @@
 <template name="maps">
 	<div class="content-maps col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		 <div id="worldmap" style="height: 700px"></div>
+		 <div id="worldmap" style="height: 700px">{{> countryinfomodal}}</div>
 	</div>
-		{{> countryinfomodal}}
 </template>
 
 
 <template name="countryinfomodal">
-	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="Country Label" aria-hidden="true">
-	  <div class="modal-dialog modal-sm">
-	    <div class="modal-content">
-				{{#if isRelationReady}}
-		      {{country}}
-					{{#each companies}}
-						<p>{{company}}</p>
-						<p>{{quantity}}</p>
-					{{/each}}
-				{{/if}}
-				<!-- {{session "country"}}
-				{{#each sessionEach "companies"}}
-					<p>{{company}}</p>
-					<p>{{quantity}}</p>
-				{{/each}} -->
-	    </div>
-	  </div>
+	<div class="leaflet-top leaflet-right">
+		<div class="info">
+			<h4>Departamento de Computação</h4>
+			{{#if isRelationReady}}
+	      <p>Total de <b>{{country}}</b> alunos</p>
+				{{#each companies}}
+					<p>{{company}}: {{quantity}}</p>
+				{{/each}}
+			<b>Conhece alguém trabalhando no país {{countryName}}?</b><br>
+			<a href="http://dcnomundo.meteor.com/add">Adicione-o!</a>
+			{{/if}}
+		</div>
 	</div>
 </template>
