@@ -1,11 +1,11 @@
-Meteor.publish('country',function(){
-	return Country.find({});
+Meteor.publish("country",function(){
+	return Country.find();
 });
-Meteor.publish('company',function(){
-	return Company.find({});
+Meteor.publish("company",function(){
+	return Company.find();
 });
-Meteor.publish('relation',function(){
-	return Relation.find({});
+Meteor.publish("relation",function(){
+	return Relation.find();
 });
 
 Meteor.startup(function() {

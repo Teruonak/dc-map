@@ -2,4 +2,27 @@
 	<div class="content-maps col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		 <div id="worldmap" style="height: 700px"></div>
 	</div>
+		{{> countryinfomodal}}
+</template>
+
+
+<template name="countryinfomodal">
+	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="Country Label" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+				{{#if isRelationReady}}
+		      {{country}}
+					{{#each companies}}
+						<p>{{company}}</p>
+						<p>{{quantity}}</p>
+					{{/each}}
+				{{/if}}
+				<!-- {{session "country"}}
+				{{#each sessionEach "companies"}}
+					<p>{{company}}</p>
+					<p>{{quantity}}</p>
+				{{/each}} -->
+	    </div>
+	  </div>
+	</div>
 </template>
